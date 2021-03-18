@@ -2,3 +2,4 @@ bot_token
 __pycache__
 *~
 *.swp
+\#.*
