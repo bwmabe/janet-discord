@@ -13,7 +13,7 @@ def load_token(filename):
 bot = commands.Bot("!")
 
 
-cmdlets = ['commands.inspire', 'commands.slap']
+cmdlets = ['commands.inspire', 'commands.slap', 'commands.cute']
 
 
 @bot.event
