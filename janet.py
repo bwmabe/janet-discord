@@ -13,16 +13,17 @@ def load_token(filename):
 bot = commands.Bot("!")
 
 
-cmdlets = ['commands.inspire']
+cmdlets = ['commands.inspire', 'commands.slap']
 
 
 @bot.event
 async def on_ready():
     print("hewwo? logged in as {}".format(bot.user))
-    await bot.change_presence(activity=discord.Streaming(name="bananas", url="https://buttsex.info"))
+    await bot.change_presence(
+        activity=discord.Streaming(name="jeremy bearimy",
+                                   url="https://hamington.net"))
 
 for cmdlet in cmdlets:
-    print("loading '%s'..." % (cmdlet))
     bot.load_extension(cmdlet)
 
 bot.run(load_token('bot_token'), bot=True, reconnect=True)
