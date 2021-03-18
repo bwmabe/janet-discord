@@ -2,6 +2,7 @@
 
 import discord
 from discord.ext import commands
+import logging
 import sys
 
 
@@ -26,4 +27,12 @@ async def on_ready():
 for cmdlet in cmdlets:
     bot.load_extension(cmdlet)
 
+
+logger = logging.getLogger('discord')
+logger.setLevel = (logging.DEBUG)
+handler = logging.FileHandler(filename='janet-bot.log',
+                              encoding='utf-8',
+                              mode='w')
+handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+logger.addHandler(handler)
 bot.run(load_token('bot_token'), bot=True, reconnect=True)
