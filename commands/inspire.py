@@ -16,7 +16,6 @@ class Inspire(commands.Cog):
             async with session\
                        .get("https://inspirobot.me/api?generate=true")\
                        as response:
-                print("getting inspiration....")
                 await ctx.send(await response.text())
 
 
