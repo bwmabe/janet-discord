@@ -1,4 +1,5 @@
 from discord.ext import commands
+import discord
 import aiohttp
 import random
 import os
@@ -6,7 +7,7 @@ import os
 
 # @return a random file from the given directory
 def rand_image(image_dir):
-    return random.choice(os.listdir(image_dir))
+    return image_dir + random.choice(os.listdir(image_dir))
 
 
 class Slap(commands.Cog):
@@ -24,13 +25,12 @@ class Slap(commands.Cog):
                    'trout, AND THERE\'S BERNIE SANDERS WITH A STEEL CHAIR!',
                    'trout', 'trout', 'trout', 'trout', 'trout', 'trout', 'trout']
 
-        await ctx.send("\*{} slaps you with a {}\*"\
+        await ctx.send("\*{} slaps you with a {}\*"
                        .format(ctx.message.author.name, random.choice(weapons)))
-
 
     @commands.command(name='bonk')
     async def bonk(self, ctx):
-        await ctx.send("bonk, go to horny jail")
+        await ctx.send(file=discord.File(rand_image('resources/images/bonk/')))
 
 
 def setup(bot):
