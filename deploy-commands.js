@@ -15,16 +15,19 @@ const commands = [
 
 const rest = new REST({ version: '9' }).setToken(token);
 
-(async () => {
+for (let gid in guildId)
+{
+	console.log(gid);
+	(async () => {
 		try {
-					await rest.put(
-									Routes.applicationGuildCommands(clientId, guildId),
-									{ body: commands },
-								);
+			await rest.put(
+							Routes.applicationGuildCommands(clientId, guildId[gid]),
+							{ body: commands },
+			);
 
-					console.log('Successfully registered application commands.');
-				} catch (error) {
-							console.error(error);
-						}
-})();
-
+			console.log('Successfully registered application commands.');
+		} catch (error) {
+			console.error(error);
+		}
+	})();
+}
