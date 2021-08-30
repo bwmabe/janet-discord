@@ -3,6 +3,8 @@ a discord bot for me and my friends
 
 I made this bot to hangout in private servers with friends. Thus, a good portion of the commands are related to that
 
+This a NodeJS rewrite of the bot since `discord.py` is no longer maintained
+
 ## Ideas for the Bot
 	* Change trout-slap to use a file
 	* Finish the random file thing

@@ -1,4 +1,6 @@
 bot_token
+node_modules
+config.json
 __pycache__
 *~
 *.swp
