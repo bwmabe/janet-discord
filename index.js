@@ -22,7 +22,7 @@ client.on('interactionCreate', async interaction => {
 	const { commandName } = interaction;
 
 	if (commandName === 'ping') {
-		await interaction.reply('Pong!');
+		await interaction.reply(`<@${interaction.user.id}>`);
 	} else if (commandName === 'server') {
 		await interaction.reply(`Server name: ${interaction.guild.name}\nTotal members: ${interaction.guild.memberCount}`);
 	} else if (commandName === 'user') {

@@ -8,7 +8,9 @@ module.exports = {
 
 			// Example formatting, inherited from the old Python version
 			// "\*{} slaps you with a {}\*".format(author, weapon)
-			await interaction.reply("slap slap slap");
+			let slapper = interaction.user;
+			let slapee = interaction.options.get('target').member;
+			await interaction.reply(`*\\*${slapper} slaps ${slapee} with a ${weapon}!*\\*`);
 		});
 	}
 }
