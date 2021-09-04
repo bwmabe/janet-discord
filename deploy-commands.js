@@ -12,6 +12,7 @@ const commands = [
 		new SlashCommandBuilder().setName('server').setDescription('Replies with server info!'),
 		new SlashCommandBuilder().setName('user').setDescription('Replies with user info!'),
 		new SlashCommandBuilder().setName('cute').setDescription('Posts something cute!'),
+		new SlashCommandBuilder().setName('slap').setDescription('Slaps someone with a thing!')
 ].map(command => command.toJSON());
 
 const rest = new REST({ version: '9' }).setToken(token);

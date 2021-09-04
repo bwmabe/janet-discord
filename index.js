@@ -6,6 +6,8 @@
 const { Client, Intents } = require('discord.js');
 const { token } = require('./config.json');
 const cute = require('./cute.js');
+const callouts = require('./callouts.js');
+
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
@@ -27,6 +29,8 @@ client.on('interactionCreate', async interaction => {
 		await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
 	} else if (commandName === 'cute') {
 		await cute(interaction);
+	} else if (commandName === 'slap') {
+		await callouts.slap(interaction);
 	}
 });
 
