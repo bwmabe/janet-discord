@@ -10,7 +10,7 @@ const { clientId, guildId, token } = require('./config.json');
 const commands = [
 		new SlashCommandBuilder()
 			.setName('ping')
-			.setDescription('Replies with pong!'),
+			.setDescription('Pings you!'),
 		new SlashCommandBuilder()
 			.setName('server')
 			.setDescription('Replies with server info!'),
@@ -26,6 +26,13 @@ const commands = [
 			.addUserOption( option => 
 				option.setName('target')
 					.setDescription('User to slap')
+					.setRequired(true)),
+		new SlashCommandBuilder()
+			.setName('bonk')
+			.setDescription('*bonk* Go to horny jail!')
+			.addUserOption( option =>
+				option.setName('target')
+					.setDescription('horny bastard to bonk')
 					.setRequired(true))
 ].map(command => command.toJSON());
 

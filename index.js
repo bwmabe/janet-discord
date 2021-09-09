@@ -31,6 +31,8 @@ client.on('interactionCreate', async interaction => {
 		await cute(interaction);
 	} else if (commandName === 'slap') {
 		await callouts.slap(interaction);
+	} else if (commandName === 'bonk') {
+		await callouts.bonk(interaction);
 	}
 });
 

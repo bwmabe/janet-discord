@@ -1,5 +1,11 @@
 const fs = require('fs');
 
+function getRandomBonkImage() {
+	let dir = './resources/images';
+	let images = fs.readdirSync(dir);
+	return `${dir}/${images[Math.floor(Math.random() * images.length)]}`;
+}
+
 module.exports = {
 	slap: async function(interaction) {
 		fs.readFile('./weapons.json', async(err, jsonString) => {
@@ -12,6 +18,12 @@ module.exports = {
 			let slapee = interaction.options.get('target').member;
 			await interaction.reply(`*\\*${slapper} slaps ${slapee} with a ${weapon}!*\\*`);
 		});
+	},
+
+	bonk: async function(interaction) {
+		let bonkee = interaction.options.get('target').member;
+		let bonk_img = fs.createReadStream(getRandomBonkImage());
+		await interaction.reply({content: `${bonkee}`, files: [bonk_img]});
 	}
 }
 
