@@ -1,0 +1,11 @@
+{
+	"token":"",
+	"clientId":"",
+	"guildId":[""]
+	"resources":{
+		"root":"./resources",
+		"bonkImagePath":"images/bonk",
+		"cuteFile":"cute.json",
+		"slapWeapons":"weapons.json"
+	}
+}

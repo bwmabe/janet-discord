@@ -1,14 +1,16 @@
 const fs = require('fs');
+const {resources} = require('../resources/config.json')
 
 function getRandomBonkImage() {
-	let dir = './resources/images';
+	let dir = resources.root + '/' + resources.bonkImagePath;
 	let images = fs.readdirSync(dir);
 	return `${dir}/${images[Math.floor(Math.random() * images.length)]}`;
 }
 
 module.exports = {
 	slap: async function(interaction) {
-		fs.readFile('./weapons.json', async(err, jsonString) => {
+		let weapons = resources.root + '/' + resources.slapWeapons;
+		fs.readFile(weapons, async(err, jsonString) => {
 			const weapons = JSON.parse(jsonString);
 			let weapon = weapons[Math.floor(Math.random() * weapons.length)];
 

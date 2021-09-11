@@ -4,9 +4,9 @@
 
 // Require the necessary discord.js classes
 const { Client, Intents } = require('discord.js');
-const { token } = require('./config.json');
-const cute = require('./cute.js');
-const callouts = require('./callouts.js');
+const { token } = require('./resources/config.json');
+const cute = require('./components/cute.js');
+const callouts = require('./components/callouts.js');
 
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });

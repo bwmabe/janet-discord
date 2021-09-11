@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
+const { resources } = require('../resources/config.json');
 
 const headers = {
 	'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515  Safari/537.36'
@@ -14,7 +15,8 @@ let skel_options = {
 };
 
 module.exports = async function (interaction){
-	fs.readFile('./cute.json', async(err, jsonString) => {
+	let cuteFile = resources.root + '/' + resources.cuteFile;
+	fs.readFile(cuteFile, async(err, jsonString) => {
 		const params = JSON.parse(jsonString);
 		let post_url = await getRandomPost(params);
 		try{
