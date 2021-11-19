@@ -7,6 +7,7 @@ const { Client, Intents } = require('discord.js');
 const { token } = require('./resources/config.json');
 const cute = require('./components/cute.js');
 const callouts = require('./components/callouts.js');
+const inspire = require('./components/inspiro.js');
 
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
@@ -33,7 +34,9 @@ client.on('interactionCreate', async interaction => {
 		await callouts.slap(interaction);
 	} else if (commandName === 'bonk') {
 		await callouts.bonk(interaction);
-	}
+	} else if (commandName === 'inspire') {
+		await inspire(interaction);
+	};
 });
 
 // Login to Discord with your client's token

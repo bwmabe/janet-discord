@@ -33,7 +33,10 @@ const commands = [
 			.addUserOption( option =>
 				option.setName('target')
 					.setDescription('horny bastard to bonk')
-					.setRequired(true))
+					.setRequired(true)),
+		new SlashCommandBuilder()
+			.setName('inspire')
+			.setDescription('get some inspiration!')
 ].map(command => command.toJSON());
 
 const rest = new REST({ version: '9' }).setToken(token);
