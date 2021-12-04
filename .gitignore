@@ -1,11 +1,5 @@
-bot_token
-node_modules
-config.json
-__pycache__
-*~
-*.swp
-\#*
-*.log
-temp
-test.*
-resources/images
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
