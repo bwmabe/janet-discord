@@ -32,7 +32,7 @@ public class Bot extends ListenerAdapter {
 		long time = System.currentTimeMillis();
 		event.reply("Boop!").setEphemeral(true)
 			.flatMap( v -> 
-					event.getHook().editOriginalFormat("Booped in: %d ms", (System.currentTimeMillis() - time)))
-					.queue();
+					event.getHook().editOriginalFormat("Booped in: %d ms", (System.currentTimeMillis() - time))
+			).queue();
 	}
 }
