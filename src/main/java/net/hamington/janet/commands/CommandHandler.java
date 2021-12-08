@@ -10,7 +10,7 @@ import java.util.Map;
  *
  */
 public class CommandHandler {
-    private Map<String, String> commands;
+    private Map<String, Command> commands;
     public CommandHandler(String configFilePath)
     {
         // Do something to load the file here
