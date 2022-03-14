@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {resources} = require('../resources/config.json')
+const resources = require('../resources/config');
 
 function getRandomBonkImage() {
 	let dir = resources.root + '/' + resources.bonkImagePath;
