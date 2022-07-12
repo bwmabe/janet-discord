@@ -4,7 +4,8 @@
   "description": "a discord bot for me and my friends",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install:clean": "rm -rf node_modules && pnpm install"
   },
   "repository": {
     "type": "git",
@@ -19,10 +20,14 @@
   "homepage": "https://github.com/bwmabe/janet-discord#readme",
   "dependencies": {
     "@discordjs/builders": "^0.6.0",
-    "@discordjs/rest": "0.1.0-canary.0",
-    "discord-api-types": "^0.22.0",
-    "discord.js": "^13.1.0",
+    "@discordjs/rest": "^0.5.0",
+    "discord-api-types": "^0.36.0",
+    "discord.js": "^13.8.0",
     "node-fetch": "^2.6.1",
     "timers": "^0.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4",
+    "@types/node": "^18.0.3"
   }
 }
