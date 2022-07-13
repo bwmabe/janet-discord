@@ -4,7 +4,7 @@
   "description": "a discord bot for me and my friends, now in TypeScript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx jest --silent=false --verbose=false",
     "clean:install": "rm -rf node_modules && pnpm install",
     "lint": "npx eslint --ext .ts src/",
     "lint:fix": "npx eslint --fix --ext .ts src/"
@@ -35,6 +35,7 @@
     "@types/node": "^18.0.3",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
+    "axios": "^0.27.2",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^26.5.3",

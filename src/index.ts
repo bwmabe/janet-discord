@@ -1,5 +1,5 @@
 import { Client, Intents, Interaction } from "discord.js"
-import { token } from "./resources/config.json"
+import { loadConfig, Config } from "./config"
 import { cute } from "./commands/cute"
 import { slap, bonk } from "./commands/callouts"
 import { inspire } from "./commands/inspiro"
@@ -7,6 +7,8 @@ import { inspire } from "./commands/inspiro"
 const client: Client = new Client({
     intents: [Intents.FLAGS.GUILDS]
 })
+
+const config: Config = loadConfig("")
 
 client.once("ready", () => {
     console.log("Ready for action!")
@@ -43,3 +45,5 @@ client.on("interactionCreate", async function(interaction: Interaction) {
         return
     }
 })
+
+client.login(config.token)
