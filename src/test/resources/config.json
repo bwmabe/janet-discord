@@ -1,0 +1,5 @@
+{
+        "token":"thisIsAToken",
+        "clientId":"exampleClientId",
+        "guildIds": ["guildId01","guildId02"]
+}
