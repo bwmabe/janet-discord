@@ -1,8 +1,9 @@
 import {CommandInteraction} from "discord.js"
+import {TestLog} from "./testLog"
 
-export function log(object: CommandInteraction | string) {
+export function log(object: CommandInteraction | TestLog | string): string | void {
     let body = undefined
-    if (object instanceof CommandInteraction) {
+    if ((object instanceof CommandInteraction) || (object instanceof TestLog)) {
         body = {
             command: object.commandName,
             guild: {
@@ -20,4 +21,5 @@ export function log(object: CommandInteraction | string) {
         }
     }
     console.log(JSON.stringify(body))
+    return JSON.stringify(body)
 }
