@@ -16,7 +16,7 @@ export class TestLog {
         }
         this.user = {
             username: "username",
-            id: "useId"
+            id: "userId"
         }
     }
 }
