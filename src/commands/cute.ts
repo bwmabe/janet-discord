@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
-import { Interaction } from "discord.js"
-import { getRand, containsAllowedDomain } from "../util"
+import { CommandInteraction } from "discord.js"
+import { getRand, containsAllowedDomain, sleep } from "../util"
 import { host, ext, subs } from "../resources/cute.json"
 
 const options: AxiosRequestConfig  = {
@@ -13,18 +13,27 @@ const options: AxiosRequestConfig  = {
 
 export async function getCutePost() {
     let postGotten = false
-    let url: string = ""
-    let getRandomResponse: AxiosResponse
+    let url = ""
+    let response: AxiosResponse
     
     while (!postGotten) {
-        getRandomResponse = await axios.request(options)
-        url = getRandomResponse.data[0]["data"]["children"][0]["data"]["url"]
-        postGotten = containsAllowedDomain(url)
+        response = await axios.request(options)
+        if (response.status == 200) {
+            url = response.data[0]["data"]["children"][0]["data"]["url"]
+            postGotten = containsAllowedDomain(url)
+        }
+        if (!postGotten) {
+            await sleep(2)
+        }
     }
 
     if ( url !== "") {
         return url
     } else {
-        return "Error"
+        return "Error getting cute"
     }
+}
+
+export async function cute(interaction: CommandInteraction) {
+    await interaction.reply(await getCutePost())
 }
