@@ -36,7 +36,7 @@ client.on("interactionCreate", async function(interaction: Interaction) {
         await slap(interaction)
         break
     case "bonk":
-        await bonk(interaction)
+        await bonk(interaction, config)
         break
     case "inspire":
         await inspire(interaction)

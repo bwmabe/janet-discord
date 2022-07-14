@@ -1,4 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios"
+import { CommandInteraction } from "discord.js"
+import { sleep } from "../util"
 
 const options: AxiosRequestConfig  = {
     url: "https://inspirobot.me/api?generate=true",
@@ -8,11 +10,22 @@ const options: AxiosRequestConfig  = {
     method: "GET"
 }
 
-async function getInspired() {
+async function getInspired(): Promise< string | undefined > {
     const response = await axios.request(options)
-    if (response.status != 200) {
-        console.log("aaa") 
+    const MAX_ATTEMPTS = 5
+    for(let i = 0; i < MAX_ATTEMPTS; i++){
+        if (response.status == 200) {
+            return response.data.text()
+        } 
+        sleep(2)
     }
 }
 
-getInspired()
+export async function inspire(interaction: CommandInteraction) {
+    let inspiration = await getInspired()
+    if (inspiration !== undefined){
+        interaction.reply(inspiration)    
+    } else {
+        interaction.reply("I am uninspired")
+    }
+}
