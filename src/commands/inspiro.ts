@@ -22,7 +22,7 @@ async function getInspired(): Promise< string | undefined > {
 }
 
 export async function inspire(interaction: CommandInteraction) {
-    let inspiration = await getInspired()
+    const inspiration = await getInspired()
     if (inspiration !== undefined){
         interaction.reply(inspiration)    
     } else {
